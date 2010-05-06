@@ -1,0 +1,94 @@
+@import suddenlybunt/suddenlybunt.sass
+
+
+//
+
+=flat_button_style($color, $bg_color, $border_color)
+  color: $color
+  border: 1px solid $border_color
+  background: $bg_color
+  cursor: pointer
+
+=with_right_db_arrow_icon
+  padding-left: 6px
+  padding-right: 12px
+  background: url("/images/design/arrows/d_right.gif") no-repeat right 2px
+  +hack_FF("background-position", "right 3px")
+
+=with_left_db_arrow_icon
+  padding-left: 12px
+  padding-right: 6px
+  background: url("/images/design/arrows/d_left.gif") no-repeat left 2px
+  +hack_FF("background-position", "left 3px")
+
+
+
+//
+
+=rollover_popup_style
+  +opacity(0.5)
+  background: black
+  color: white
+  text-align: left
+  position: absolute
+
+
+
+
+//
+
+=heading_with_bg_bar
+  font-size: 1em
+  line-height: 1.5em
+  vertical-align: middle
+  padding: 7px 10px 6px
+  background: url("/images/design/bg_bar.gif") no-repeat
+
+
+
+
+
+
+//
+
+=square_grid_container
+  +clearfix
+  li.grid_element
+    +float_left
+    margin: 0 9px 9px 0
+    img
+      width: 50px
+      height: 50px
+    &.last
+      margin-right: 0
+
+
+
+
+
+
+
+
+
+
+
+//
+
+
+=button_style_anchor($color: #666, $bg_color: #ccc)
+  display: block
+  font-size: 0.9em
+  line-height: 1.5em
+  padding: 1px 8px 0
+  +hack_FF("margin-top", "1px")
+  +hack_FF("padding-top", "0px")
+  border: 1px solid #999
+  +normal_anchor_style($color, $bg_color, none)
+  +active_anchor_style($color, $bg_color, none)
+  &:hover
+    border: 1px solid #{$color}
+
+
+
+
+

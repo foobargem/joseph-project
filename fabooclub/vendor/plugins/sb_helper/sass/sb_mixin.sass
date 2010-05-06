@@ -1,0 +1,334 @@
+
+////////////////////////////////////////////////////////////////////////////
+// Layout of Elements
+////////////////////////////////////////////////////////////////////////////
+
+
+// Min-width Container
+//   - ie6 compatible!
+// 
+// Usage:
+//    <div class="fixedwidth"><div class="minwidth">
+//      <div class="minwidth_wrapper"><div class="minwidth_holder">
+//      </div></div>
+//    </div></div>
+//
+
+=min_width_container(!min_width = 960px, !fixed_width = "true")
+  .fixedwidth
+    @if !fixed_width == "true"
+      :width = !min_width
+      :margin 0 auto
+  .minwidth
+    :width 100%
+    :min-width = !min_width
+    :overflow auto
+    :overflow visible
+  * html & .minwidth div.minwidth_wrapper
+    :border-left = (!min_width - 100px) "solid" #fff
+    :position relative
+    :float left
+    :z-index 1
+  * html & .minwidth div.minwidth_holder
+    :margin-left = "-" + (!min_width - 100px)
+    :position relative
+    :float left
+    :z-index 2
+
+
+
+// Clear Fix
+//   - clearing floats without extra markup
+// 
+// Usage:
+//    <div>
+//      <div class="float_left">First Section</div>
+//      <div class="float_left">Second Section</div>
+//      <div class="clear"></div>
+//    </div>
+//
+//
+//    <div class="clearfix"> <!-- Here is clearfix -->
+//      <div class="float_left">First Section</div>
+//      <div class="float_left">Second Section</div>
+//      <!-- NOT require clear div -->
+//    </div>
+//
+
+=clearfix
+  &:after
+    :content "."
+    :display block
+    :height 0
+    :clear both
+    :visibility hidden
+  &
+    :display inline-block
+  * html &
+    :height 1%
+  &
+    :display block
+
+=clear
+  :clear both
+
+
+// Define Anchor Style
+
+=normal_anchor_style(!color, !bg_color, !text_decoration)
+  &, &:visited
+    :color = !color
+    :background-color = !bg_color
+    :text-decoration = !text_decoration
+
+=active_anchor_style(!color, !bg_color, !text_decoration)
+  &:hover, &:active
+    :color = !color
+    :background-color = !bg_color
+    :text-decoration = !text_decoration
+
+
+// Simple Tabbed Navigation (no image version)
+//    - tabbed navigation with color scheme
+// Usage:
+//    <ul class="tab_navigation">
+//      <li><a href="#">Tab A</a></li>
+//      <li class="current">Tab B</li>
+//      <li><a href="#">Tab C</a></li>
+//    </ul>
+//
+
+=simple_tab_navigation1
+  +clearfix
+  :padding 0 15px
+  :border-bottom 1px solid #ccc
+  body:-moz-last-node &
+    :padding-bottom 1px
+  li
+    :float left
+    :padding-top 12px
+    a
+      :font-size 1.1em
+      :padding 4px 12px 2px
+      * html &
+        :padding-bottom 5px
+      :border 1px solid #bbb
+      :border-bottom 0px solid #ccc
+      +normal_anchor_style(#000, #ddd, "none")
+      +active_anchor_style(#000, #fff, "underline")
+  li.current
+    a
+      :border 1px solid #bbb
+      :padding-top 6px
+      :border-bottom 1px solid #fff
+      +normal_anchor_style(#000, #fff, "none")
+      +active_anchor_style(#000, #fff, "underline")
+
+=simple_tab_navigation2
+  +clearfix
+  :padding 3px 5px 0
+  :border-bottom 2px solid #ccc
+  li
+    :float left
+    :padding 5px 2px 0
+    a
+      :font-size 1em
+      :padding 3px 8px 2px
+      * html &
+        :padding-bottom 6px
+      :border 2px solid #ccc
+      :border-bottom 0px solid #999
+      +normal_anchor_style(#000, #ccc, "none")
+      +active_anchor_style(#000, #fff, "none")
+  li.current
+    a
+      :border 2px solid #ccc
+      :border-bottom 2px solid #fff
+      +normal_anchor_style(#000, #fff, "none")
+      +active_anchor_style(#000, #fff, "none")
+
+=simple_sub_navigation
+  +clearfix
+  :margin-top 3px
+  :margin-bottom 6px
+  :background #fff
+  li
+    :float left
+    :padding 5px 5px 3px
+    :font-size 0.95em
+    :border-bottom 1px dotted #aaa
+    a
+      :padding 2px 6px
+  li.current
+    a
+      :font-weight bold
+      +normal_anchor_style(#222, "transparent", "none")
+      +active_anchor_style(#222, "transparent", "none")
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+// Decoration
+////////////////////////////////////////////////////////////////////////////
+
+
+// CSS Sprite
+//    - using background image like Image Sprite
+//
+
+=image_sprite(!image_url, !image_width = "default", !image_height = "default", !sprite_x = 0, !sprite_y = 0)
+  :display block
+  :overflow hidden
+  :background
+    :color transparent
+    :image = "url(" + !image_url + ")"
+    :repeat no-repeat
+    :position = !sprite_x + " " + !sprite_y
+  @if !image_width != "default"
+    :width = !image_width
+  @if !image_height != "default"
+    :height = !image_height
+
+
+
+
+// Image Replacement
+//    - display the image instead of the text node
+//
+// Usage:
+//    <h1 class="image_replacement">
+//      Text Title <!-- this text will not be seen within the viewport -->
+//    </h1>
+//
+
+=image_replacement(!image_url, !image_width = "default", !image_height = "default", !sprite_x = 0px, !sprite_y = 0px)
+  +image_sprite(!image_url, !image_width, !image_height, !sprite_x, !sprite_y)
+  :text-align left
+  :text-indent -9999em
+
+
+
+
+
+// Sliding Doors Patterns
+//    - auto resizing background-image using image-sprite
+
+=bg_box_2p
+
+=bg_box_4p
+
+
+
+
+// Round Corner
+
+=round_corner(!size = 4px)
+  :-moz-border-radius-topleft = !size
+  :-moz-border-radius-topright = !size
+  :-moz-border-radius-bottomleft = !size
+  :-moz-border-radius-bottomright = !size
+  :-webkit-border-top-left-radius = !size
+  :-webkit-border-top-right-radius = !size
+  :-webkit-border-bottom-left-radius = !size
+  :-webkit-border-bottom-right-radius = !size
+  
+
+
+
+// Background Button
+
+=background_button(!height = 21px, !padding = 12px)
+  :height = 21px - 1px + (!height - 21px)/2
+  :padding-top = (!height - 21px)/2 + 1
+  :background
+    :color #d8d8d8
+    :image url(/images/master/button_bg.png)
+    :repeat repeat-x
+  a
+    :padding 0 #{!padding}
+    +normal_anchor_style(#333, "transparent", "none")
+    +active_anchor_style(#333, "transparent", "underline")
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+// Utility
+////////////////////////////////////////////////////////////////////////////
+
+// 
+
+=no_text_selection
+  :-moz-user-select none
+  :-khtml-user-select none
+  :user-select none
+  :cursor default
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+// IE6 Hacks
+////////////////////////////////////////////////////////////////////////////
+
+//
+
+=ie6_transparent_layer
+  :background transparent
+  * html &
+    :background url("/images/master/transparentGif.gif")
+
+=ie6_transparent_border(!mode, !color = #0004ff, !width = 1px)
+  @if !mode == "on"
+    * html &
+      :border-color = !color
+      :-ms-filter = "progid:DXImageTransform.Microsoft.Chroma(color=#{!color})"
+      :filter chroma(color=#{!color})
+      :width = !width
+  @if !mode == "off"
+    * html &
+      :border-color = !color
+      :filter none
+
+
+
+
+
+//
+
+
+=table_style1
+  +clear
+  :margin-bottom 20px
+  :width 100%
+  thead
+    tr
+      :background #ddd
+      th
+        :background #ddd
+        :font-size 0.95em
+        :border 1px solid #aaa
+        :padding 3px 3px
+        :vertical-align middle
+  tbody
+    tr
+      td
+        :font-size 0.95em
+        :border 1px solid #aaa
+        :padding 4px 3px
+    tr.total, tr.average
+      :background #def
+      td
+        :background #def
+    td.actions
+      a
+        :padding 0 2px
+
+

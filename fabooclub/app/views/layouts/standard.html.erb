@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= content_for?(:title) ? (yield :title) : "Joseph Project from Facebook" %></title>
+    <%= stylesheet_link_tag "standard", "suddenlybunt" %>
+    <%= (yield :stylesheets) if content_for?(:stylesheets) %>
+    <%= javascript_include_tag :defaults %>
+    <%= yield :javascripts if content_for?(:javascripts) %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+
+    <div id="h">
+      <h1><%= link_to "Joseph Project", root_path %></h1>
+
+      <div class="h_primary">
+        <ul class="top_nav">
+          <li><%= link_to "About", root_path %></li>
+          <li><%= link_to "Feeds", feeds_path %></li>
+          <li><%= link_to "Photos", "" %></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="contents">
+      <%= yield %>
+    </div>
+
+    <div id="footer">
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,8 @@
+.page_info {
+  font-size: 1.2em; }
+  .page_info div {
+    margin: 10px; }
+  .page_info .picture img {
+    border: 0; }
+  .page_info .link {
+    clear: both; }

@@ -1,0 +1,59 @@
+#Popup_overlay {
+  background: #333333;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  z-index: 100; }
+
+.Popup_popup {
+  background-color: white;
+  position: absolute;
+  z-index: 102;
+  padding: 15px; }
+
+.SB_select {
+  z-index: 1; }
+  .SB_select:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  .SB_select {
+    display: inline-block; }
+  .IE .SB_select {
+    height: 1%; }
+  .SB_select {
+    display: block; }
+  .SB_select .select_button {
+    float: left; }
+    .SB_select .select_button a {
+      padding: 0;
+      display: block;
+      border: 1px solid white; }
+    .SB_select .select_button a:hover, .SB_select .select_button a:active {
+      text-decoration: none;
+      border: 1px solid #999999;
+      background: url(/images/master/arrow_dropdown.gif) no-repeat 95%; }
+    .SB_select .select_button.clicked a {
+      border: 1px solid #999999;
+      background: url(/images/master/arrow_dropdown.gif) no-repeat 95%; }
+  .SB_select.static_border .select_button a {
+    border: 1px solid #999999;
+    background: url(/images/master/arrow_dropdown.gif) no-repeat 95%; }
+  .SB_select ul.select_options {
+    border: 1px solid #999999; }
+    .SB_select ul.select_options li {
+      width: 100%; }
+      .SB_select ul.select_options li a {
+        padding: 2px 5px;
+        display: block;
+        background: url(/images/master/transparentGif.gif); }
+      .SB_select ul.select_options li a:hover, .SB_select ul.select_options li a:active {
+        background: #ffeeaa;
+        text-decoration: none; }
+    .SB_select ul.select_options li.selected a, .SB_select ul.select_options li.selected a:hover, .SB_select ul.select_options li.selected a:active {
+      background: #d7deed; }

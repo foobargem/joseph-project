@@ -1,0 +1,139 @@
+@import suddenlybunt/base.sass
+
+
+//**
+    Simple Tabbed Navigation (no image version)
+    - tabbed navigation with color scheme
+ 
+
+=simple_tab_navigation1
+  +clearfix
+  :padding 0 15px
+  :border-bottom 1px solid #ccc
+  +hack_FF("padding-bottom", "1px")
+  li
+    +float_left
+    :padding-top 12px
+    a
+      :font-size 1.1em
+      :padding 4px 12px 2px
+      +hack_IE("padding-bottom", "5px")
+      :border 1px solid #bbb
+      :border-bottom 0px solid #ccc
+      +normal_anchor_style(#000, #ddd, "none")
+      +active_anchor_style(#000, #fff, "underline")
+  li.current
+    a
+      :border 1px solid #bbb
+      :padding-top 6px
+      :border-bottom 1px solid #fff
+      +normal_anchor_style(#000, #fff, "none")
+      +active_anchor_style(#000, #fff, "underline")
+
+=simple_tab_navigation2
+  +clearfix
+  :padding 3px 5px 0
+  :border-bottom 2px solid #ccc
+  li
+    +float_left
+    :padding 5px 2px 0
+    a
+      :font-size 1em
+      :padding 3px 8px 2px
+      +hack_IE("padding-bottom", "6px")
+      :border 2px solid #ccc
+      :border-bottom 0px solid #999
+      +normal_anchor_style(#000, #ccc, "none")
+      +active_anchor_style(#000, #fff, "none")
+  li.current
+    a
+      :border 2px solid #ccc
+      :border-bottom 2px solid #fff
+      +normal_anchor_style(#000, #fff, "none")
+      +active_anchor_style(#000, #fff, "none")
+
+=simple_sub_navigation
+  +clearfix
+  :margin-top 3px
+  :margin-bottom 6px
+  :background #fff
+  li
+    +float_left
+    :padding 5px 5px 3px
+    :font-size 0.95em
+    :border-bottom 1px dotted #aaa
+    a
+      :padding 2px 6px
+  li.current
+    a
+      :font-weight bold
+      +normal_anchor_style(#222, "transparent", "none")
+      +active_anchor_style(#222, "transparent", "none")
+
+
+
+
+// Style: Button
+// 
+
+=background_button($height: 21px, $padding: 12px)
+  height: 21px - 1px + ($height - 21px)/2
+  padding-top: ($height - 21px)/2 + 1
+  background:
+    color: #d8d8d8
+    image: url(/images/master/button_bg.png)
+    repeat: repeat-x
+  a
+    padding: 0 $padding
+    +normal_anchor_style(#333, "transparent", "none")
+    +active_anchor_style(#333, "transparent", "underline")
+
+
+=button_style_anchor($color: "#666", $bg_color: "$ccc", $border_color: "#999", $font_size: "0.9em", $padding: 1px)
+  display: block
+  font-size: $font_size
+  line-height: 1.5em
+  padding: #{$padding} 8px 0
+  +hack_FF("margin-top", "1px")
+  +hack_FF("padding-top", $padding - 1)
+  border: 1px solid #{$border_color}
+  +normal_anchor_style($color, $bg_color, "none")
+  +active_anchor_style($color, $bg_color, "none")
+  &:hover
+    border: 1px solid #{$color}
+
+
+
+
+// Style: Table
+//
+
+=table_style
+  +clear
+  margin-bottom: 20px
+  width: 100%
+  thead
+    tr
+      background: #ddd
+      th
+        background: #ddd
+        font-size: 0.95em
+        border: 1px solid #aaa
+        padding: 3px 3px
+        vertical-align: middle
+  tbody
+    tr
+      td
+        font-size: 0.95em
+        border: 1px solid #aaa
+        padding: 4px 3px
+    tr.total, tr.average
+      background: #def
+      td
+        background: #def
+    td.actions
+      a
+        padding: 0 2px
+
+
+

@@ -1,0 +1,25 @@
+<div class="from">From: <%= feed.from_name %></div>
+
+<% unless feed.message.nil? %>
+  <div class="message">Message: <%=raw feed.message.gsub("\n", "<br />") %></div>
+<% end %>
+
+<% unless feed.picture.nil? %>
+  <div class="picture">
+    <%= link_to (image_tag feed.picture), feed.link %>
+  </div>
+  <% unless feed.name.nil? %>
+    <div class="name"><%= link_to feed.name, feed.link %></div>
+  <% end %>
+<% end %>
+
+
+<% unless feed.caption.nil? %>
+  <div class="caption">Caption: <%= feed.caption %></div>
+<% end %>
+
+<% unless feed.likes == 0 %>
+  <div class="likes">Likes: <%= number_with_delimiter(feed.likes) %></div>
+<% end %>
+
+<div class="created_at">Created: <%= feed.created_at %></div>

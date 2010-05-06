@@ -1,0 +1,15 @@
+.feeds {
+  font-size: 1.2em; }
+  .feeds div {
+    margin: 10px; }
+  .feeds .feed {
+    border: 1px solid #cccccc;
+    padding: 5px; }
+    .feeds .feed .comments {
+      padding-left: 10px;
+      margin: 0; }
+      .feeds .feed .comments .subtitle {
+        font-size: 0.8em; }
+      .feeds .feed .comments .comment {
+        border-top: 1px solid #aabbdd;
+        padding: 0; }

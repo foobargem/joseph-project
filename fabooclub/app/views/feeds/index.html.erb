@@ -1,0 +1,29 @@
+<% stylesheet "feeds" %>
+
+<div class="feeds">
+
+  <% @feeds.each do |feed| %>
+    <div class="feed">
+
+      <%= render :partial => "feeds/div_feed", :locals => { :feed => feed } %>
+
+      <% unless feed.comments.blank? %>
+
+        <div class="comments">
+          <h3 class="subtitle">Comments</h3>
+
+          <% feed.comments.each do |comment| %>
+            <div class="comment">
+              <%= render :partial => "feeds/div_feed", :locals => { :feed => comment } %>
+            </div>
+          <% end %>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+</div>

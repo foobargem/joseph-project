@@ -1,0 +1,166 @@
+@import suddenlybunt/base.sass
+@import mixin.sass
+
+
+//
+
+$label_width: 110px
+$label_gap: 10px
+
+
+=form_element
+  +clear
+  +clearfix
+  padding: 8px 0
+
+=form_flat_button
+  +flat_button_style(#555, #ece9d8, #aaa)
+  font-size: 0.95em
+  margin: 0
+
+
+
+
+// Form Container - normal form
+
+.form_container
+  .text_field
+    font-size: 1em
+    border: 1px solid #959595
+    background: #fff
+    font-size: 0.95em
+    padding: 2px
+    +hack_IE("padding", "3px")
+    margin: 0
+  div.big_text
+    label
+      font-size: 1.1em
+      width: $label_width
+      margin-top: 0.6em
+    .text_field
+      color: #333
+      font-size: 1.7em
+      margin: 0
+  input.button_fixed
+    +form_flat_button
+    padding: 2px 8px
+    +hack_IE6("padding", "0 4px")
+    +hack_IE7("padding", "0 4px")
+    +hack_IE8("padding", "3px 4px 0")
+    +hack_IE8("vertical-align", "top")
+    +hack_FF("padding", "0 4px")
+    +hack_FF("vertical-align", "top")
+  input.button
+    +form_flat_button
+    padding: 4px 8px
+    +hack_IE("padding", "4px 4px 0")
+    +hack_FF("padding", "2px 4px")
+    +hack_FF("vertical-align", "top")
+  label
+    +float_left
+    width: $label_width
+    font-size: 0.95em
+    font-weight: bold
+    text-align: right
+    margin-right: $label_gap
+  fieldset
+    padding: 0
+    legend
+      font-size: 1.5em
+      line-height: 1.5em
+  div.required
+    +form_element
+  div.optional
+    +form_element
+    color: #666
+  div.odd_row
+    background: #f4f3f3
+  div.submit
+    +form_element
+    text-align: center
+    padding: 15px 0 15px
+    a
+      margin-left: 8px
+  div.hr
+    margin: 35px 10px 0
+    padding-top: 20px
+    border-top: 1px solid #808080
+  div.text
+    +clear
+    margin-left: $label_width + $label_gap
+    padding: 5px 0
+    font-size: 0.95em
+  p.desc
+    color: #444
+    font-size: 0.95em
+  p.tip
+    color: #777
+    font-size: 0.9em
+  p.desc
+  p.input, div.input
+    +clearfix
+    +float_left
+    label
+      +float(none)
+      font-weight: normal
+      +hack_IE("vertical-align", "middle")
+
+
+.form_title
+  background: url("/images/design/bg_dotline.gif") repeat-x bottom left
+  margin-bottom: 15px
+
+
+.form_guide
+  +clearfix
+  margin-top: 35px
+  div.rail_body
+    background: #eee
+    padding: 7px
+    div.guide_content
+      background: #f4f3f3
+  .warning
+    color: #666
+    padding: 10px
+
+
+#spinner
+  padding: 30px 50px 0
+  height: 70px
+  img
+    width: 32px
+
+
+
+
+// Date Picker
+
+
+
+
+
+// Error Explanation
+
+div.errorExplanation
+  padding: 15px 20px
+  border: 2px solid #999
+  margin-bottom: 15px
+  background: #ffc
+  h2
+    font-size: 1.3em
+    color: #c36
+  p
+    padding-top: 5px
+    padding-bottom: 3px
+    color: #666
+  ul
+    margin-left: 30px
+    li
+      list-style: circle
+
+.fieldWithErrors
+  display: inline
+
+
+
+

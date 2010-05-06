@@ -1,0 +1,316 @@
+@import reset.sass
+@import typo.sass
+@import layout.sass
+@import form.sass
+@import mixin.sass
+
+
+
+// Filters
+
+=side_options
+  +float_right
+  li
+    +float_left
+    font-size: 0.85em
+    a
+      +normal_anchor_style(#575757, transparent, none)
+      +active_anchor_style(#ff0099, transparent, underline)
+    &.current
+      a
+        font-weight: bold
+    &.spacer
+      padding: 0 3px
+      font-size: 1em
+    &.padded
+      padding: 0 5px
+
+.filter
+  margin-bottom: 15px
+  width: 100%
+  height: 31px
+  background: url("/images/design/tb/bg_title.gif") repeat-x
+  ul.main_options
+    +float_left
+    margin: 0
+    li
+      +float_left
+      display: inline
+      margin: 0 2px
+      a
+        +float_left
+        cursor: pointer
+        background: url("/images/design/tb/bg.gif") no-repeat top right
+        +normal_anchor_style(#aaa, transparent, none)
+        +active_anchor_style(#aaa, transparent, underline)
+        span
+          +float_left
+          margin: 0 2px 0 -2px
+          padding: 5px 18px 5px 20px
+          font-size: 1.2em
+          line-height: 1.5em
+          position: relative
+          background: url("/images/design/tb/bg.gif") no-repeat top left
+      &.current
+        a
+          background: url("/images/design/tb/bg_on.gif") no-repeat top right
+          +normal_anchor_style(#111, transparent, none)
+          +active_anchor_style(#111, transparent, underline)
+        span
+          background: url("/images/design/tb/bg_on.gif") no-repeat top left
+          padding-bottom: 2px
+          border-bottom: 1px solid #fff
+  ul.side_options
+    +side_options
+    margin-top: 10px
+
+
+.sub_filter
+  +clearfix
+  margin-top: -5px
+  margin-bottom: 5px
+  width: 100%
+  ul.main_options
+    +float_left
+    li
+      +float_left
+      display: inline
+      margin: 0 3px 0
+      a
+        +float_left
+        cursor: pointer
+        +normal_anchor_style(#111, transparent, none)
+        +active_anchor_style(#111, transparent, underline)
+        span
+          +float_left
+          padding: 0 10px
+          +hack_IE("padding", "1px 10px 0")
+          font-size: 1em
+          position: relative
+      &.current
+        a
+          +normal_anchor_style(#fff, #333, none)
+          +active_anchor_style(#fff, #333, none)
+        span
+  ul.side_options
+    +side_options
+
+
+
+// Titles
+
+.h_title
+  +clearfix
+  h2
+    +float_left
+  background: url("/images/design/bg_title.gif") no-repeat bottom left
+
+.content_title
+  +clearfix
+  width: 640px
+  background: url("/images/design/bg_dotline.gif") repeat-x bottom left
+  h2
+    +float_left
+  .tools
+    +float_right
+    margin-top: 10px
+    margin-right: 5px
+
+
+
+// grid containers
+
+.looks_square_grid
+  +square_grid_container
+
+.users_grid_small
+  +square_grid_container
+
+
+
+// sections
+
+.full_width_section
+  margin-bottom: 20px
+  h3
+    +heading_with_bg_bar
+  ul
+    padding-top: 7px
+    padding-bottom: 7px
+  .item_data
+    width: 500px
+
+.rail_width_section
+  .item_data
+    width: 210px
+
+=content_with_icon_header
+  +clearfix
+  padding: 7px
+  .item_header
+    +float_left
+    img
+      width: 50px
+  .item_data
+    +float_left
+    margin-left: 10px
+    padding-top: 1px
+
+
+ul.comments
+  li.comment
+    +content_with_icon_header
+    .item_data
+      font-size: 0.95em
+      .info
+        +clearfix
+        .user_name
+          +float_left
+          font-weight: bold
+          margin-right: 5px
+        .target
+          +float_left
+          margin-right: 6px
+        .timestamp
+          +float_left
+          color: #999
+        .tools
+          +float_left
+          margin-left: 10px
+      .body
+
+ul.activities
+  li.activity
+    +content_with_icon_header
+    .item_header
+      +float_right
+    .item_data
+      +float_left
+      margin-left: 0
+      margin-right: 10px
+      font-size: 0.95em
+      color: #666
+      .body
+        margin-right: 6px
+      .timestamp
+        color: #999
+
+
+.full_width_section /* patch style for full-width section */
+  ul.activities
+    .timestamp
+      :display block
+  ul
+    li.grid_element
+      margin: 4px
+      &.last
+        margin: 4px
+
+
+div.user_activities
+  h3.date
+    background: none
+    padding: 4px 6px
+    border-bottom: 1px solid #ccc
+    font-size: 1.2em
+    line-height: 1em
+    color: #333
+    font-weight: normal
+  ul.full_activities
+    padding-top: 5px
+    padding-bottom: 25px
+    li.full_activity
+      +clearfix
+      margin: 3px 0
+      div.item_content
+        +clearfix
+        border-bottom: 1px solid #ddd
+        padding: 10px 0
+        margin: 0 12px
+      .item_image
+        +float_left
+        margin-right: 15px
+      .item_square_image
+        +float_right
+      .item_info
+        +float_left
+        width: 515px
+        .activity_desc
+          font-size: 0.95em
+          span.body
+            color: #333
+          span.timestamp
+            color: #999
+            margin-left: 6px
+        .item_body
+          .look_title
+            +clear
+            font-size: 1.5em
+            line-height: 1.5em
+          .desc
+            +float_left
+            color: #666
+            margin: 10px 5px
+            height: 38px
+          .comment
+            +float_left
+            color: #333
+            margin: 10px 5px
+      div.item_footer
+        +clear
+        +float_right
+        width: 300px
+        color: #333
+        .vote_stats
+          +float_right
+          padding-left: 24px
+          margin-left: 15px
+          background: url(/images/design/icons/vote.gif) no-repeat
+        .comment_stats
+          +float_right
+          padding-left: 24px
+          margin-left: 15px
+          background: url(/images/design/icons/comment.gif) no-repeat
+    li.last
+      div.item_content
+        border: none
+
+        
+
+
+//
+
+.user_profile
+  +clearfix
+  .profile_header
+    +float_left
+    margin-right: 10px
+    img
+      width: 50px
+  .profile_body
+    +float_left
+    width: 220px
+    font-size: 0.95em
+    .user_name
+    .user_job
+    .user_point
+    .user_stats
+      margin: 10px 0
+    .follow_buttons
+      +clearfix
+      margin-bottom: 5px
+    #follow_button
+      +float_right
+      a
+        +button_style_anchor(#666, #ccc)
+
+
+
+//
+
+ul.bookmark_share
+  +clearfix
+  li
+    +float_left
+    margin-right: 3px
+

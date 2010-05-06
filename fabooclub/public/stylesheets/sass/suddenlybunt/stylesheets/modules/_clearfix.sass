@@ -1,0 +1,58 @@
+@import hacks.sass
+
+
+//** 
+  Clear Fix
+  : clearing floats without extra markup
+ 
+  Usage:
+    <div>
+      <div class="float_left">First Section</div>
+      <div class="float_left">Second Section</div>
+      <div class="clear"></div>
+    </div>
+ 
+ 
+    <div class="clearfix"> <!-- Here is clearfix -->
+      <div class="float_left">First Section</div>
+      <div class="float_left">Second Section</div>
+      <!-- NOT require clear div -->
+    </div>
+ 
+
+=clearfix
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    overflow: hidden
+    visibility: hidden
+  &
+    display: inline-block
+  &
+    +has_layout
+  &
+    display: block
+
+
+=has_layout
+  +hack_IE("height", "1%")
+
+
+
+//
+
+=clear
+  clear: both
+
+=float_left
+  +float("left")
+
+=float_right
+  +float("right")
+
+=float($side: "left")
+  display: inline
+  float: unquote($side)
+

@@ -1,0 +1,107 @@
+@import sb_mixin
+
+
+// default
+
+body
+  :color #000
+
+body, p, ol, ul, td
+  :font
+    :family arial, helvetica, sans-serif
+    :size 13px
+  :line-height 1.5em
+  * html &
+    :font-family "돋움", Dotum, arial, helvetica, sans-serif
+
+
+// headings
+
+h1
+  :font
+    :size 2.5em
+    :weight bold
+  :line-height 1.5em
+
+h2
+  :font
+    :size 1.8em
+    :weight bold
+  :line-height 1.5em
+
+h3
+  :font
+    :size 1.5em
+    :weight bold
+  :line-height 1.5em
+
+h4
+  :font
+    :size 1.3em
+    :weight bold
+  :line-height 1.5em
+
+h5
+  :font
+    :size 1.1em
+    :weight bold
+  :line-height 1.5em
+
+h1, h2, h3, h4
+
+
+
+// anchors
+
+!anchor_color = #0769b8
+
+a
+  +normal_anchor_style(!anchor_color, "transparent", "none")
+  +active_anchor_style(!anchor_color, "transparent", "underline")
+
+a.careful
+  +normal_anchor_style(red, "transparent", "underline")
+  +active_anchor_style(#fff, red, "underline")
+
+a.silent
+  +normal_anchor_style("auto", "transparent", "none")
+  +active_anchor_style("auto", "transparent", "none")
+
+a.action
+  +normal_anchor_style(!anchor_color, "transparent", "none")
+  +active_anchor_style(#fff, !anchor_color, "none")
+
+a.careful_action
+  +normal_anchor_style(!anchor_color, "transparent", "underline")
+  +active_anchor_style(red, "transparent", "underline")
+
+a.action_doing
+  +normal_anchor_style(navy, #fc3, "underline")
+  +active_anchor_style(navy, #fc3, "underline")
+
+a.gray
+  +normal_anchor_style(#333, "transparent", "underline")
+  +active_anchor_style(#fff, #222, "none")
+
+a.gray_simple
+  +normal_anchor_style(#333, "transparent", "none")
+  +active_anchor_style(#333, "transparent", "underline")
+
+a.lgray
+  +normal_anchor_style(#333, "transparent", "underline")
+  +active_anchor_style(#fff, #222, "none")
+
+a.lgray_simple
+  +normal_anchor_style(#333, "transparent", "none")
+  +active_anchor_style(#333, "transparent", "underline")
+
+a.black
+  +normal_anchor_style(#000, "transparent", "underline")
+  +active_anchor_style(#fff, #000, "none")
+
+a.black_simple
+  +normal_anchor_style(#000, "transparent", "none")
+  +active_anchor_style(#000, "transparent", "underline")
+
+
+

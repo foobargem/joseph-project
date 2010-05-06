@@ -1,0 +1,35 @@
+<% stylesheet "page" %>
+
+<div class="page_info">
+
+  <% unless @fb_page.picture.blank? %>
+    <div class="picture">
+      <%= link_to (image_tag @fb_page.picture), @fb_page.link %>
+    </div>
+  <% end %>
+
+  <div class="link">
+    Link: <%= link_to "facebook link", @fb_page.link %>
+  </div>
+
+  <div class="category">
+    분류: <%= @fb_page.category %>
+  </div>
+
+  <div class="founded">
+    설립: <%= @fb_page.founded %>
+  </div>
+
+  <div class="company_overview">
+    설명: <%= @fb_page.company_overview %>
+  </div>
+
+  <div class="mission">
+    설립목적: <%= @fb_page.mission %>
+  </div>
+
+  <div class="fan_count">
+    팬수: <%= number_with_delimiter(@fb_page.fan_count) %>
+  </div>
+
+</div>

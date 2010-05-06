@@ -1,0 +1,102 @@
+@import sb_mixin
+
+body
+  +min_width_container(960px, "true")
+
+// Layout
+
+#Header
+  +clearfix
+  :padding 5px 10px 0
+  h1
+    :float left
+  ul.top_nav
+    :float left
+    :margin-top 12px
+    :margin-left 30px
+    li.account_notification
+      :background #fc0
+      :padding 1px 10px
+  ul.account_nav
+    :float right
+    :margin-top 10px
+    li
+      :float left
+      :margin 0 6px
+
+#Content
+  +clear
+  :padding-bottom 5px
+//  :border 1px solid #eee
+
+#Footer
+  +clear
+  :margin-top 10px
+  :padding 6px 10px 25px
+  :font-size 0.85em
+  :border-top 1px solid #ccc
+  
+
+
+// Site-wide Notification
+
+.announcement
+
+
+.notification
+
+
+
+// Content Grid
+
+.container_1box
+
+.container_2box
+  +clearfix
+  .unit_content
+    :float left
+    :width 69%
+  .unit_rail
+    :float right
+    :width 30%
+
+.container_2box_left_railed
+  +clearfix
+  .unit_content
+    :float right
+    :width 82%
+  .unit_rail
+    :float left
+    :width 17%
+
+.container_2box_half
+
+.container_1box_center
+
+.main_header
+  :padding 5px 10px 10px
+
+.container_header
+  :padding 5px 10px
+
+.unit_content
+
+.unit_rail
+
+.content_header
+  :padding 5px 10px
+
+.content_body
+  :padding 5px 10px
+
+.rail_header
+  :padding 5px 10px
+  
+.rail_body
+  :padding 5px 10px
+  div.section_title
+    :font-size 1.05em
+
+
+
+

@@ -1,0 +1,103 @@
+@import sb_mixin
+
+
+// Form Container - normal form
+
+!label_width = 150px
+!label_gap = 10px
+
+div.form_container
+  +clearfix
+  .form_heading
+    :color #444
+    :margin 10px 0 5px
+  input.text_field, textarea.text_field
+    :padding 3px 5px
+    :border 1px solid #bbb
+    &:focus
+      :border 1px solid #777
+    &.number
+      :text-align center
+    &.right_number
+      :text-align right
+    :font-size 1em
+    &.big_text
+      :font-size 1.7em
+    &.slim
+      :padding-top 0px
+      :padding-bottom 0px
+  fieldset
+    :padding-top 5px
+    :padding-bottom 15px
+    legend
+      :font-size 1.5em
+      * html &
+        :line-height 1.5em
+      :font-weight bold
+      :color #444
+      :padding-left = !label_width + !label_gap
+  div.form_item
+    +clearfix
+    :padding-top 5px
+    :padding-bottom 5px
+    .label
+      :float left
+      :width = !label_width
+      :margin-right = !label_gap
+      :text-align right
+    .control
+      :float left
+    p
+    p.tip
+      :color #777
+      :font-size 0.95em
+    p.desc
+      :color #444
+  ul.radio
+    li
+      :padding 1px 0
+  ul.form_buttons
+    +clearfix
+    :padding 10px 0 20px
+    li
+      :display inline
+      :margin 0 0px
+      &.gap
+        :margin-right 2px
+  .center
+    :text-align center
+  .right
+    :text-align right
+      
+
+// Date Picker
+
+
+
+
+
+// Error Explanation
+
+div.errorExplanation
+  :padding 15px 20px
+  :border 2px solid #999
+  :margin-bottom 15px
+  :background #ffc
+  h2
+    :font-size 1.3em
+    :color #c36
+  p
+    :padding-top 5px
+    :padding-bottom 3px
+    :color #666
+  ul
+    :margin-left 30px
+    li
+      :list-style circle
+
+.fieldWithErrors
+  :display inline
+
+
+
+
