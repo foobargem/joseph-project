@@ -4,10 +4,34 @@ module FeedsHelper
     date.strftime("%Y%m%d%H%M%S")
   end
 
+  def cyworld_subject(feed)
+    if feed.message.blank?
+      "no subject"
+    else
+      truncate(feed.message, 30, "...")
+    end
+  end
+
+  def cyworld_url(url)
+    if url.blank?
+      PageMetadata.first.link
+    else
+      url
+    end
+  end
+
   def cyworld_body(feed)
-    html = break_line(feed.message)
-    html += "<br /><br />"
-    html += "<a href=\"#{feed.link}\">from facebook(Joseph-project)</a>"
+    html = ""
+
+    unless feed.message.blank?
+      html += break_line(feed.message)
+    end
+
+    unless feed.link.blank?
+      html += "<br /><br />"
+      html += "<a href=\"#{feed.link}\" target=\"_blank\">from facebook(Joseph-project)</a>"
+    end
+
     html
   end
 

@@ -5,7 +5,7 @@ xml.PostInfo :xmlns => "urn:skcomms:prod",
              :"xsi:schemaLocation" => "urn:skcomms:prod http://api.cyworld.com/xml/openscrap/post/v1/openpost.xsd" do
   xml.SID CYWORLD_CONFIG['api_key']
   xml.Post do
-    xml.Subject { xml.cdata! truncate(@feed.message, 30, "...") }
+    xml.Subject { xml.cdata! cyworld_subject(@feed) }
     xml.OriginContentsText01 { xml.cdata! cyworld_body(@feed) }
     unless @feed.picture.blank?
       xml.OriginPhotoLink01 do
@@ -16,7 +16,7 @@ xml.PostInfo :xmlns => "urn:skcomms:prod",
       end
     end
     xml.OriginOrder "OriginPhotoLink01|OriginContentsText01"
-    xml.Url { xml.cdata! @feed.link }
+    xml.Url { xml.cdata! cyworld_url(@feed.link) }
     xml.LastUpdateDate cyword_date_format(@feed.created_at)
   end
 end
