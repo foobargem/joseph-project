@@ -7,7 +7,7 @@ module FeedsHelper
   def cyworld_body(feed)
     html = break_line(feed.message)
     html += "<br /><br />"
-    html += "#{link_to "from facebook(Joseph-Project)", feed.link}"
+    html += "<a href=\"#{feed.link}\">from facebook(Joseph-project)</a>"
     html
   end
 
