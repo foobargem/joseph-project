@@ -14,7 +14,7 @@
 
           <% feed.comments.each do |comment| %>
             <div class="comment">
-              <%= render :partial => "feeds/div_feed", :locals => { :feed => comment } %>
+              <%= render :partial => "feeds/div_comment", :locals => { :feed => comment } %>
             </div>
           <% end %>
 
