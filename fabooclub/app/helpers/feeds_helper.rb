@@ -39,9 +39,7 @@ module FeedsHelper
       html += "#{break_line(feed.message)} <br />"
     end
 
-    unless feed.link.blank?
-      html += "<a href=\"#{feed.link}\" target=\"_blank\">from facebook(Joseph-project)</a>"
-    end
+    html += "<a href=\"#{cyworld_url(feed.link)}\" target=\"_blank\">from facebook(Joseph-project)</a>"
 
     html
   end
