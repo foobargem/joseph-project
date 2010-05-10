@@ -1,6 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require File.expand_path("../../lib/patches/action_view_utf8", __FILE__)
+require File.expand_path("../../lib/patches/active_record_utf8", __FILE__)
+require File.expand_path("../../lib/patches/mysql_utf8", __FILE__)
 
 # Auto-require default libraries and those for the current Rails environment.
 Bundler.require :default, Rails.env
