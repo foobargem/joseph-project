@@ -6,7 +6,7 @@ xml.PostInfo :xmlns => "urn:skcomms:prod",
   xml.SID CYWORLD_CONFIG['api_key']
   xml.Post do
     xml.Subject { xml.cdata! truncate(@feed.message, 30, "...") }
-    xml.OriginContentsText01 { xml.cdata! break_line(@feed.message) }
+    xml.OriginContentsText01 { xml.cdata! cyworld_body(@feed) }
     unless @feed.picture.blank?
       xml.OriginPhotoLink01 do
         xml.Url { xml.cdata! @feed.picture }
