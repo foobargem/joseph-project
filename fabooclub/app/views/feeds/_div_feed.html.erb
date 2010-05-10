@@ -23,6 +23,8 @@
 <% end %>
 
 <div class="script_cyworld">
-  <%= link_to (image_tag "http://asimg.nate.com/img/devs/guide/scrap_btn_type2.gif"), "" %>
+  <%= link_to "show xml", feed_url(feed, :xml) %>
+  <%= link_to_function (image_tag "http://asimg.nate.com/img/devs/guide/scrap_btn_type2.gif"),
+    "window.open('http://api.cyworld.com/openscrap/post/v1/?sid=txWo4wt9EaCcO5mcNiHS51VdmbdDaGCw&xu=#{feed_url(feed, :xml)}', 'cyopenscrap', 'width=450,height=410')" %>
 </div>
 <div class="created_at">Created: <%= feed.created_at %></div>
