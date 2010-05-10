@@ -10,12 +10,13 @@ xml.PostInfo :xmlns => "urn:skcomms:prod",
     unless @feed.picture.blank?
       xml.OriginPhotoLink01 do
         xml.Url { xml.cdata! @feed.picture }
-        #xml.Width "400"
-        #xml.Height "400"
+        # TODO: how to get image size
+        xml.Height 100
+        xml.Width 100
       end
     end
-    xml.Url { xml.cdata! @feed.link }
     xml.OriginOrder "OriginPhotoLink01|OriginContentsText01"
+    xml.Url { xml.cdata! @feed.link }
     xml.LastUpdateDate cyword_date_format(@feed.created_at)
   end
 end
