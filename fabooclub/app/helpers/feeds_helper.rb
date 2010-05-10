@@ -5,10 +5,14 @@ module FeedsHelper
   end
 
   def cyworld_subject(feed)
-    if feed.message.blank?
-      "no subject"
-    else
+    if feed.name
+      feed.name
+    elsif feed.message
       truncate(feed.message, 30, "...")
+    elsif feed.caption
+      feed.caption
+    else
+      "no subject"
     end
   end
 
@@ -23,12 +27,19 @@ module FeedsHelper
   def cyworld_body(feed)
     html = ""
 
+    unless feed.caption.blank?
+      html += "caption: #{break_line(feed.caption)} <br />"
+    end
+
+    unless feed.name.blank?
+      html += "#{break_line(feed.name)} <br />"
+    end
+
     unless feed.message.blank?
-      html += break_line(feed.message)
+      html += "#{break_line(feed.message)} <br />"
     end
 
     unless feed.link.blank?
-      html += "<br /><br />"
       html += "<a href=\"#{feed.link}\" target=\"_blank\">from facebook(Joseph-project)</a>"
     end
 
