@@ -13,8 +13,8 @@ module FacebookBot
         set_tmp_photofile_name(fb_id)
         download_photofile_to_tmp
         get_resolution
+        delete_tmp_file
       end
-      delete_tmp_file
     end
 
     def get_photo_element
