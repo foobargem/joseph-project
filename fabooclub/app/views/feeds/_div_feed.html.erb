@@ -4,9 +4,9 @@
   <div class="message">Message: <%=raw feed.message.gsub("\n", "<br />") %></div>
 <% end %>
 
-<% unless feed.picture.nil? %>
+<% unless feed.orig_picture.nil? %>
   <div class="picture">
-    <%= link_to (image_tag feed.picture), feed.link %>
+    <%= link_to (image_tag feed.orig_picture, :width => feed.orig_picture_width, :height => feed.orig_picture_height), feed.link %>
   </div>
   <% unless feed.name.nil? %>
     <div class="name"><%= link_to feed.name, feed.link %></div>

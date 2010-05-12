@@ -7,12 +7,12 @@ xml.PostInfo :xmlns => "urn:skcomms:prod",
   xml.Post do
     xml.Subject { xml.cdata! cyworld_subject(@feed) }
     xml.OriginContentsText01 { xml.cdata! cyworld_body(@feed) }
-    unless @feed.picture.blank?
+    unless @feed.orig_picture.blank?
       xml.OriginPhotoLink01 do
-        xml.Url { xml.cdata! @feed.picture }
+        xml.Url { xml.cdata! @feed.orig_picture }
         # TODO: how to get image size
-        xml.Height 100
-        xml.Width 100
+        xml.Height @feed.orig_picture_height
+        xml.Width @feed.orig_picture_width
       end
     end
     xml.OriginOrder "OriginPhotoLink01|OriginContentsText01"
