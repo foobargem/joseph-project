@@ -69,7 +69,19 @@ module FacebookBot
         end
 
         feed[:message] = data['message']
+
         feed[:picture] = data['picture']
+
+        unless data['picture'].blank?
+          pc = PhotoCrawler.new(data['id'], data['link'])
+
+          if pc.response
+            feed[:orig_picture] = pc.origin_picture_url
+            feed[:orig_picture_width] = pc.width
+            feed[:orig_picture_height] = pc.height
+          end
+        end
+
         feed[:link] = data['link']
         feed[:name] = data['name']
         feed[:icon] = data['icon']
