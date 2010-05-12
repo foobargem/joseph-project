@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100428115231) do
+ActiveRecord::Schema.define(:version => 20100512024950) do
 
   create_table "feeds", :force => true do |t|
     t.string   "fb_id"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(:version => 20100428115231) do
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "orig_picture"
+    t.integer  "orig_picture_width",  :default => 0
+    t.integer  "orig_picture_height", :default => 0
   end
 
   create_table "page_metadatas", :force => true do |t|
