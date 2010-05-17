@@ -5,6 +5,7 @@ tmp/**/*
 config/database.yml
 config/database.mongo.yml
 config/initializers/paperclip.rb
+db/schema.rb
 
 lib/log/*
 public/flvs/**/*
