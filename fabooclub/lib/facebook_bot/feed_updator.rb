@@ -4,8 +4,7 @@ module FacebookBot
 
     attr_reader :feeds
 
-    def initialize
-      url = "http://graph.facebook.com/287407861237/feed"
+    def initialize(url = "http://graph.facebook.com/287407861237/feed")
       @doc = Nokogiri::HTML(open(url))
 
       @feeds = JSON.parse(@doc.content)
@@ -38,6 +37,17 @@ module FacebookBot
       def create_feed(data)
         feed = Feed.where("fb_id = ?", data[:fb_id]).first
         if feed.nil?
+
+          unless data['picture'].blank?
+            pc = PhotoCrawler.new(data[:fb_id], data[:link])
+
+            if pc.response
+              data[:orig_picture] = pc.origin_picture_url
+              data[:orig_picture_width] = pc.width
+              data[:orig_picture_height] = pc.height
+            end
+          end
+
           fd = Feed.new(data)
           fd.save!
           fd
@@ -71,16 +81,6 @@ module FacebookBot
         feed[:message] = data['message']
 
         feed[:picture] = data['picture']
-
-        unless data['picture'].blank?
-          pc = PhotoCrawler.new(data['id'], data['link'])
-
-          if pc.response
-            feed[:orig_picture] = pc.origin_picture_url
-            feed[:orig_picture_width] = pc.width
-            feed[:orig_picture_height] = pc.height
-          end
-        end
 
         feed[:link] = data['link']
         feed[:name] = data['name']
