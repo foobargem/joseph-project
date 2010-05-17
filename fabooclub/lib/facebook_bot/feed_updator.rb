@@ -38,7 +38,7 @@ module FacebookBot
         feed = Feed.where("fb_id = ?", data[:fb_id]).first
         if feed.nil?
 
-          unless data['picture'].blank?
+          unless data[:picture].blank?
             pc = PhotoCrawler.new(data[:fb_id], data[:link])
 
             if pc.response
