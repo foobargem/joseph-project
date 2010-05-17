@@ -13,3 +13,6 @@
       .feeds .feed .comments .comment {
         border-top: 1px solid #aabbdd;
         padding: 0; }
+  .feeds .paginate {
+    padding: 5px;
+    text-align: center; }
