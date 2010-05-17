@@ -12,6 +12,7 @@ public/flvs/**/*
 public/_files/**/*
 upload/**/*
 
+script/cronjob.sh
 
 test/log/*
 solr/**/*
