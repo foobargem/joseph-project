@@ -3,7 +3,7 @@ class FeedsController < ApplicationController
   layout "standard"
 
   def index
-    @feeds = Feed.where("parent_id IS NULL").order("created_at desc")
+    @feeds = paginate(Feed.where("parent_id IS NULL").order("created_at desc"))
   end
 
   def show
