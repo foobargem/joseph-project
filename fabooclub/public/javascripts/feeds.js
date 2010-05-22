@@ -2,13 +2,13 @@
 document.observe('dom:loaded', function(){
 
   var open_cyworld_scrap = function(ev) {
-    var url = "http://api.cyworld.com/openscrap/post/v1/?sid=txWo4wt9EaCcO5mcNiHS51VdmbdDaGCw";
-    var element = ev.element().parentNode;
+    ev.stop();
 
-    //console.debug( element );
+    var url = "http://api.cyworld.com/openscrap/post/v1/?sid=txWo4wt9EaCcO5mcNiHS51VdmbdDaGCw";
+    var element = ev.element().ancestors().first();
+
     url += "&xu=" + $(element).href;
 
-    ev.stop();
     window.open(url, 'cyopenscrap', 'width=450,height=410');
 
     return false;
